@@ -31,11 +31,21 @@ with st.sidebar:
   #st.selectbox(label, options...)
   island = st.selectbox('island', ('Biscoe','Dream','Torgersen'))
   gender = st.selectbox('Gender', ('Female', 'Male'))
-  #st.slider(label, min_value=None, max_value=None, value=None (we are using Avg Value), step=None)
+  #st.slider(label, min_value=None, max_value=None, value=None (we are using Avg Value))
   bill_length_mm = st.slider('Bill Length (mm)', 32.1, 59.64, 43.9)
   bill_depth_mm = st.slider('Bill Depth (mm)', 13.1, 21.5, 17.2)
   flipper_length_mm = st.slider('Flipper Length (mm)', 172.0, 231.0, 201.0)
   body_mass_g = st.slider('Body Mass (g)', 2700.0, 6300.0, 4207.0)
+
+  # Creating a  dataframe for the input features
+  data = {'island', island,
+          'gender', gender,
+          'bill_length_mm', bill_length_mm,
+          'bill_depth_mm', bill_depth_mm,
+          'flipper_length_mm', flipper_length_mm,
+          'body_mass_g', body_mass_g}
+  input_df = pd.DataFrame(data, index=[0])
+input_df
   
   
   
