@@ -29,7 +29,6 @@ with st.expander('Data visualization'):
 with st.sidebar:
   st.header('Input features')
   #st.selectbox(label, options...)
-  #"flipper_length_mm","body_mass_g"
   island = st.selectbox('island', ('Biscoe','Dream','Torgersen'))
   gender = st.selectbox('Gender', ('Female', 'Male'))
   #st.slider(label, min_value=None, max_value=None, value=None (we are using Avg Value), step=None)
