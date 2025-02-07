@@ -12,12 +12,12 @@ with st.expander('Data'):
 
   #adding variables
   st.write('**X**')
-  X= df.drop('species' , axis =1)
+  X= df.drop('species' , axis =1) #excluding species col=1
   X #display X
 
   st.write('**y**')
-  y=df.species
-  y
+  y=df.species #Only species Col
+  y 
   
 
 
