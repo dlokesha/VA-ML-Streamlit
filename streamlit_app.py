@@ -48,8 +48,8 @@ with st.sidebar:
   #Combining it to the original dataset
   input_penguins = pd.concat([input_df, X], axis= 0)
 
-with st.expander('Input Features**'):
-  st.write('**Input Penguin')
+with st.expander('**Input Features**'):
+  st.write('**Input Penguin**')
   input_df
   st.write('**Combined input Penguin data with the orginal penguins Data**')
   input_penguins
