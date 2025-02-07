@@ -1,4 +1,4 @@
-#🤖 Machine Learning App
+# 🤖 Machine Learning App
 
 
 This is a machine learning application using Streamlit
