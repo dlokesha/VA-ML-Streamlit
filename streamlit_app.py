@@ -12,7 +12,7 @@ with st.expander('Data'):
 
   #adding variables
   st.write('**X**')
-  X= df.drop('species' , axis =1) #excluding species col=1
+  X= df.drop('species' , axis= 1) #excluding species col=1
   X #display X
 
   st.write('**y**')
@@ -39,14 +39,14 @@ with st.sidebar:
 
   # Creating a  dataframe for the input features
   data = {'island': island,
-          'gender': gender,
           'bill_length_mm': bill_length_mm,
           'bill_depth_mm': bill_depth_mm,
           'flipper_length_mm': flipper_length_mm,
-          'body_mass_g': body_mass_g}
+          'body_mass_g': body_mass_g,
+          'gender': gender}
   input_df = pd.DataFrame(data, index=[0])
   #Combining it to the original dataset
-  input_penguins = pd.concat([input_df, X], axis =0)
+  input_penguins = pd.concat([input_df, X], axis= 0)
 
 input_df
   
