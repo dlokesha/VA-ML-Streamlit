@@ -99,6 +99,7 @@ df_pred_prob.rename(columns={0:'Adelie', 1:'Chinstrap', 2:'Gentoo'})
 
 #Display Predicticted Species
 st.subheader('Predicted species')
+#Progress  Coulmn
 st.dataframe(df_pred_prob,
              column_config={
               "Adelie": st.column_config.ProgressColumn(
