@@ -123,7 +123,6 @@ st.dataframe(df_pred_prob,
                 max_value=1,
                ),
     }, hide_index= True)
-df_pred_prob
 
 penguins_species = np.array(['Adelie', 'Chinstrap', 'Gentoo'])
 st.success(str(penguins_species[pred][0]))
