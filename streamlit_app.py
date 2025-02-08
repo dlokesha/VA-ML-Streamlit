@@ -25,7 +25,7 @@ with st.expander('Data visualization'):
   #st.scatter_chart(data=None, *, x=None, y=None, x_label=None, y_label=None, color=None, size=None, width=None, height=None, use_container_width=True)
   st.scatter_chart(data=df, x = 'bill_length_mm', y = 'body_mass_g', color = 'species')
   
-# Data Preparation
+# Input Features
 with st.sidebar:
   st.header('Input features')
   #st.selectbox(label, options...)
@@ -37,6 +37,8 @@ with st.sidebar:
   flipper_length_mm = st.slider('Flipper Length (mm)', 172.0, 231.0, 201.0)
   body_mass_g = st.slider('Body Mass (g)', 2700.0, 6300.0, 4207.0)
 
+  
+
   # Creating a  dataframe for the input features
   data = {'island': island,
           'bill_length_mm': bill_length_mm,
@@ -47,7 +49,14 @@ with st.sidebar:
   input_df = pd.DataFrame(data, index=[0])
   #Combining it to the original dataset
   input_penguins = pd.concat([input_df, X_raw], axis= 0)
+  
+with st.expander('**Input Features**'):
+  st.write('**Input Penguin**')
+  input_df
+  st.write('**Combined input Penguin data with the orginal penguins Data**')
+  input_penguins
 
+#Data Preparation
 #Encode X
 encode = ['island', 'sex']
 df_penguins = pd.get_dummies(input_penguins, prefix =encode)
@@ -65,13 +74,11 @@ y=y_raw.apply(target_encode)
 y
 y_raw
 
-with st.expander('**Input Features**'):
-  st.write('**Input Penguin**')
-  input_df
-  st.write('**Combined input Penguin data with the orginal penguins Data**')
-  input_penguins
-  st.write('**Encoded Input Penguin**')
+with st.expander('Data Preparation')
+  st.write('**Encoded X(Input Penguin)**')
   input_row
+  st.write('**Encoded Y**')
+  y
 
 
   
