@@ -55,8 +55,8 @@ input_row = df_penguins[:1] #only first row
 
 #Encode Y
 target_mapper = {'Adelie: 0',
-                'Chinstrap':1,
-                'Gentoo':2}
+                'Chinstrap': 1,
+                'Gentoo': 2}
 #Custom function: 
 def target_encode(val):
   return target_mapper[val]
