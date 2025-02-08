@@ -90,7 +90,11 @@ clf = clf.fit(x, y)
 ##Apply model to make Predictions
 prediction = clf.predict(input_row)
 pred_prob = clf.predict_proba(input_row)
-pred_prob 
+
+df_pred_prob = pd.DataFrame(pred_prob)
+df_pred_prob.column=['Adele', 'Chinstrap', 'Gentoo']
+df_pred_prob.rename(columns={0:'Adele', 1:'Chinstrap', 2:'Gentoo'})
+df_pred_prob
 
 
 
