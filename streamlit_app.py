@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd #to read the dataset (.csv)
+from sklearn.ensemble import RandomForestClassifier
 
 st.title('🤖 Machine Learning Application')
 st.info('This Application builds a Machine Learning Application using Streamlit!')
@@ -77,6 +78,18 @@ with st.expander('Data Preparation'):
   input_row
   st.write('**Encoded Y**')
   y
+
+#Model Training and inference
+
+##Train the Ml MOdel
+clf = RandomForestClassifier()
+clf = clf.fit(X_raw, y)
+
+##Apply model to make Predictions
+prediction = clf.predict(input_row)
+pred_prob = clf.predict_proba(input_row)
+pred_prob 
+
 
 
   
