@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd #to read the dataset (.csv)
+import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
 st.title('🤖 Machine Learning Application')
@@ -88,13 +89,20 @@ clf = RandomForestClassifier()
 clf = clf.fit(x, y)
 
 ##Apply model to make Predictions
-prediction = clf.predict(input_row)
+pred = clf.predict(input_row)
 pred_prob = clf.predict_proba(input_row)
 
 df_pred_prob = pd.DataFrame(pred_prob)
 df_pred_prob.columns =['Adele', 'Chinstrap', 'Gentoo']
 df_pred_prob.rename(columns={0:'Adele', 1:'Chinstrap', 2:'Gentoo'})
+
+
+#Display Predicticted Species
+
+st.subheader('Predicted species')
 df_pred_prob
+penguins_species = np.array(['Adele', 'Chinstrap', 'Gentoo'])
+st.success(str(penguins_species[pred][0]))
 
 
 
