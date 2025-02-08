@@ -83,7 +83,7 @@ with st.expander('Data Preparation'):
 
 ##Train the Ml MOdel
 clf = RandomForestClassifier()
-clf = clf.fit(x, y)
+clf = clf.fit(X, y)
 
 ##Apply model to make Predictions
 prediction = clf.predict(input_row)
