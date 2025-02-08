@@ -93,8 +93,8 @@ pred = clf.predict(input_row)
 pred_prob = clf.predict_proba(input_row)
 
 df_pred_prob = pd.DataFrame(pred_prob)
-df_pred_prob.columns =['Adele', 'Chinstrap', 'Gentoo']
-df_pred_prob.rename(columns={0:'Adele', 1:'Chinstrap', 2:'Gentoo'})
+df_pred_prob.columns =['Adelie', 'Chinstrap', 'Gentoo']
+df_pred_prob.rename(columns={0:'Adelie', 1:'Chinstrap', 2:'Gentoo'})
 
 
 #Display Predicticted Species
@@ -125,7 +125,7 @@ st.dataframe(df_pred_prob,
     }, hide_index= True)
 df_pred_prob
 
-penguins_species = np.array(['Adele', 'Chinstrap', 'Gentoo'])
+penguins_species = np.array(['Adelie', 'Chinstrap', 'Gentoo'])
 st.success(str(penguins_species[pred][0]))
 
 
