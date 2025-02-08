@@ -61,6 +61,8 @@ with st.expander('**Input Features**'):
 #Encode X
 encode = ['island', 'sex']
 df_penguins = pd.get_dummies(input_penguins, prefix =encode)
+
+x= df_penguins[1:] #except 1st row
 input_row = df_penguins[:1] #only first row
 
 #Encode Y
@@ -83,7 +85,7 @@ with st.expander('Data Preparation'):
 
 ##Train the Ml MOdel
 clf = RandomForestClassifier()
-clf = clf.fit(X, y)
+clf = clf.fit(x, y)
 
 ##Apply model to make Predictions
 prediction = clf.predict(input_row)
