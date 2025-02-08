@@ -12,12 +12,12 @@ with st.expander('Data'):
 
   #adding variables
   st.write('**X**')
-  X= df.drop('species' , axis= 1) #excluding species col=1
-  X #display X
+  X_raw= df.drop('species' , axis= 1) #excluding species col=1
+  X_raw #display X
 
   st.write('**y**')
-  y=df.species #Only species Col
-  y 
+  y_raw=df.species #Only species Col
+  y_raw
 
 #Data Visualization
 with st.expander('Data visualization'):
@@ -46,18 +46,30 @@ with st.sidebar:
           'sex': gender}
   input_df = pd.DataFrame(data, index=[0])
   #Combining it to the original dataset
-  input_penguins = pd.concat([input_df, X], axis= 0)
+  input_penguins = pd.concat([input_df, X_raw], axis= 0)
+
+#Encode X
+encode = ['island', 'sex']
+df_penguins = pd.get_dummies(input_penguins, prefix =encode)
+input_row = df_penguins[:1] #only first row
+
+#Encode Y
+target_mapper = {'Adelie: 0',
+                'Chinstrap':1,
+                'Gentoo':2}
+#Custom function: 
+def target_encode(val):
+  return target_mapper[val]
 
 with st.expander('**Input Features**'):
   st.write('**Input Penguin**')
   input_df
   st.write('**Combined input Penguin data with the orginal penguins Data**')
   input_penguins
+  st.write('**Encoded Input Penguin**')
+  input_row
 
-#Encode
-encode = ['island', 'sex']
-df_penguins = pd.get_dummies(input_penguins, prefix =encode)
-df_penguins[:1] #only first row
+
   
   
   
